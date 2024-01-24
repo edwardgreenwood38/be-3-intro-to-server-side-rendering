@@ -13,6 +13,12 @@ breads.get('/', (req, res) => {
     //res.send(Bread);
 });
 
+// NEW
+breads.get('/new', (req, res) => {
+    res.render('new')
+})
+
+
 // SHOW
 breads.get('/:arrayIndex', (req, res) => {
     if (Bread[req.params.arrayIndex]) {
@@ -24,6 +30,7 @@ breads.get('/:arrayIndex', (req, res) => {
     }
   });
 
+  
 // CREATE
 breads.post('/', (req, res) => {
     console.log(req.body);
