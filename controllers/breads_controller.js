@@ -7,7 +7,6 @@ const Bread = require('../models/bread.js');
 breads.get('/', (req, res) => {
     Bread.find()
       .then(foundBreads => {
-        console.log(foundBreads)
         res.render('index',
         {
             breads: foundBreads,
@@ -34,15 +33,14 @@ breads.get('/:indexArray/edit', (req, res) => {
 
 
 // SHOW
-breads.get('/:arrayIndex', (req, res) => {
-    if (Bread[req.params.arrayIndex]) {
-      res.render('Show', {
-        bread:Bread[req.params.arrayIndex],
-        index: req.params.arrayIndex
+breads.get('/:id', (req, res) => {
+    // console.log('id: ' + req.params.id);
+    Bread.findById(req.params.id)
+      .then(foundBread => {
+        res.render('show', {
+          bread: foundBread
+        })
       })
-    } else {
-      res.render('error404')
-    }
   });
 
 
