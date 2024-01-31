@@ -24,7 +24,7 @@ const app = express();
 //   await mongoose.connect(process.env.MONGO_URI);
 // };
 
-mongoose.connect(process.env.MONGO_URI + '/breads').
+mongoose.connect(process.env.MONGO_URI).
   then ( () => { console.log('connected to mongo: ', process.env.MONGO_URI) } );
 
 

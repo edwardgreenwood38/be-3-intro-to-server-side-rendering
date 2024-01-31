@@ -15,4 +15,4 @@ const breadSchema = new Schema({
 // model and export
 const Bread = mongoose.model('Bread', breadSchema);
 
-module.exports = Bread;
+module.exports = Bread; 
