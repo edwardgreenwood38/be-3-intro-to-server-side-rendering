@@ -9,20 +9,7 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 const app = express();
 
-// mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true},
-//     () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
-//   );
 
-// const conn = await mongoose.createConnection(process.env.MONGO_URI).asPromise();
-// console.log('connected to mongo: ', process.env.MONGO_URI);
-// console.log('status: ', conn.readyState);
-
-// main().catch(err => console.log(err));
-// main( () => { console.log('connected to mongo: ', process.env.MONGO_URI) })
-
-// async function main() {
-//   await mongoose.connect(process.env.MONGO_URI);
-// };
 
 mongoose.connect(process.env.MONGO_URI).
   then ( () => { console.log('connected to mongo: ', process.env.MONGO_URI) } );
@@ -47,6 +34,10 @@ app.get('/', (req, res) => {
 // Breads
 const breadsController = require('./controllers/breads_controller.js');
 app.use('/breads', breadsController);
+
+// bakers
+const bakerController = require("./controllers/bakers_controller.js");
+app.use("/bakers", bakerController);
 
 
 // 404 Page
